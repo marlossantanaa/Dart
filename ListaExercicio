@@ -1,0 +1,245 @@
+import 'dart:io';
+import 'dart:math';
+
+void exercicio1() {
+  stdout.write('Informe a temperatura em Fahrenheit:');
+  double temp = double.parse(stdin.readLineSync()!);
+  double celsius = (temp - 32) * (5 / 9);
+  print(
+      'A temperatura $temp F° em Celcius é ${celsius.toStringAsFixed(2)} C°\n');
+}
+
+exercicio2() {
+  stdout.write("Digite seu nome completo: ");
+  String? nome = stdin.readLineSync();
+  print('Seja bem vinda(a) ${nome!.split(" ")[0]}!');
+  print('\n');
+}
+
+exercicio3() {
+  stdout.write('Informe as tags do produto: ');
+  String? tag = stdin.readLineSync();
+  print(tag!.split(" "));
+  print('Total de tags ${tag.split(" ").length}');
+  print('\n');
+}
+
+exercicio4() {
+  print('====================');
+  print('Verificador de idade');
+  stdout.write('Informe sua Idade:');
+  int idade = int.parse(stdin.readLineSync()!);
+  if (idade < 18) {
+    print('Voce é menor de idade!');
+  } else if (idade >= 18) {
+    print('Voce é maior de idade!');
+  }
+  print('====================');
+  print('\n');
+}
+
+exercicio5() {
+  stdout.write('Informe sua nota: ');
+  String? notaAluno = stdin.readLineSync();
+  notaAluno == 7 ? print('Aprovado/n') : print('Reprovado/n');
+}
+
+exercicio6() {
+  stdout.write('Informe o valor do produto 1: ');
+  double p1 = double.parse(stdin.readLineSync()!);
+  stdout.write('Informe o valor do produto 2: ');
+  double p2 = double.parse(stdin.readLineSync()!);
+  if (p1 >= p2) {
+    print('R\$${p1.toStringAsFixed(2)}\n');
+  } else if (p2 > p1) {
+    print('R\$${p2.toStringAsFixed(2)}\n');
+  }
+}
+
+exercicio7() {
+  stdout.write('Informe o nivel de glicose: ');
+  double gli = double.parse(stdin.readLineSync()!);
+  if (gli < 70) {
+    print('Hipoglicemia');
+  } else if (gli <= 110 && gli >= 70) {
+    print('Normal');
+  } else {
+    print('Hiperglicemia \n');
+  }
+}
+
+exercicio8() {
+  stdout.write("Digite o mês Desejado:");
+  int mes = int.parse(stdin.readLineSync()!);
+  switch (mes) {
+    case 1:
+      print("Janeiro\n");
+      break;
+    case 2:
+      print("Fevereiro\n");
+      break;
+    case 3:
+      print("Março\n");
+      break;
+    case 4:
+      print("Abril\n");
+      break;
+    case 5:
+      print("Maio\n");
+      break;
+    case 6:
+      print("Junho\n");
+      break;
+    case 7:
+      print("Julho\n");
+      break;
+    case 8:
+      print("Agosto\n");
+      break;
+    case 9:
+      print("Stembro \n");
+      break;
+    case 10:
+      print("Outubro\n");
+      break;
+    case 11:
+      print("Novembro\n");
+      break;
+    case 12:
+      print("Dezembro\n");
+      break;
+    default:
+      print("Não existe\n");
+  }
+}
+
+exercicio9() {
+  print('Tem protetor solar? (s/N): ');
+  bool protetor = stdin.readLineSync() == 's';
+  print('E fim de semana? (s/N): ');
+  bool fds = stdin.readLineSync() == 's';
+  print('Esta com chuva? (s/N): ');
+  bool chuva = stdin.readLineSync() == 'n';
+  void res = protetor && fds && chuva
+      ? print('Vá para praia\n')
+      : print('Triste o fim\n');
+}
+
+exercicio10() {
+  stdout.write('Informe um numero inteiro:');
+  int num1 = int.parse(stdin.readLineSync()!);
+  for (int i = 2; i < num1; i++) {
+    if (i % 2 == 0) {
+      stdout.write('$num1 \n');
+    }
+  }
+}
+
+exercicio11() {
+  stdout.write('Informe o total de Alunos: ');
+  int alunos = int.parse(stdin.readLineSync()!);
+  double media = 1;
+  double nota = 1;
+  for (int i = 1; i <= alunos; i++) {
+    stdout.write('Informe a nota {$i+: 1}');
+    double notaAluno = double.parse(stdin.readLineSync()!);
+    nota = notaAluno + notaAluno;
+  }
+  media = nota / alunos;
+  print('A media da turma é: $media \n');
+}
+
+exercicio12() {
+  stdout.write('Informe o numero que quer calcular o fatorial: ');
+  int num = int.parse(stdin.readLineSync()!);
+  int fat = 1;
+  for (int i = num; 1 >= 2; i--) {
+    fat *= i;
+    stdout.write(" $i  x");
+  }
+  stdout.write('= $fat\n');
+}
+
+exercicio13() {
+  bool condicao = true;
+  int idadeMaior = 0;
+  int idadeMenor = 0;
+  stdout.write('Informe a idade da Pessoa: ');
+
+  while (condicao) {
+    String? txt = stdin.readLineSync();
+    if (txt == '-1') {
+      condicao = false;
+      print('TOTAL MAIOR DE IDADE:$idadeMaior');
+      print('TOTAL MENOR DE IDADe:$idadeMenor');
+    } else {
+      stdout.write('Informe a idade da Pessoa: ');
+    }
+  }
+  if (idadeMaior >= 18) {
+    idadeMaior++;
+  }
+  if (idadeMenor < 18) {
+    idadeMaior++;
+  }
+  print('\n');
+}
+
+exercicio14() {
+  bool continuar = true;
+  double resultado = 0;
+  do {
+    print("Calculadora em Dart");
+    print(
+        "1 - Somar\n2 - Subtrair\n3 - Multiplicar\n4 - Dividir\n5 - Resto\n0 - Sair\nEscolha uma opção");
+    int calculo = int.parse(stdin.readLineSync()!);
+    switch (calculo) {
+      case 1:
+        stdout.write("Agora informe o primeiro numero: ");
+        double n1 = double.parse(stdin.readLineSync()!);
+        stdout.write("Agora informe o segundo numero: ");
+        double n2 = double.parse(stdin.readLineSync()!);
+        resultado = n1 + n2;
+        print('$n1 + $n2 = $resultado');
+        break;
+      case 2:
+        stdout.write("Agora informe o primeiro numero: ");
+        double n1 = double.parse(stdin.readLineSync()!);
+        stdout.write("Agora informe o segundo numero: ");
+        double n2 = double.parse(stdin.readLineSync()!);
+        resultado = n1 - n2;
+        print('$n1 - $n2 = $resultado');
+        break;
+      case 3:
+        stdout.write("Agora informe o primeiro numero: ");
+        double n1 = double.parse(stdin.readLineSync()!);
+        stdout.write("Agora informe o segundo numero: ");
+        double n2 = double.parse(stdin.readLineSync()!);
+        resultado = n1 * n2;
+        print('$n1 X $n2 = $resultado');
+        break;
+      case 4:
+        stdout.write("Agora informe o primeiro numero: ");
+        double n1 = double.parse(stdin.readLineSync()!);
+        stdout.write("Agora informe o segundo numero: ");
+        double n2 = double.parse(stdin.readLineSync()!);
+        resultado = (n1 / n2);
+        print('$n1 / $n2 = $resultado');
+        break;
+      case 5:
+        stdout.write("Agora informe o primeiro numero: ");
+        double n1 = double.parse(stdin.readLineSync()!);
+        stdout.write("Agora informe o segundo numero: ");
+        double n2 = double.parse(stdin.readLineSync()!);
+        resultado = n1 % n2;
+        print('$n1 % $n2 = $resultado');
+        break;
+      case 0:
+        print("Encerrando o programa...");
+        continuar = false;
+        break;
+      default:
+        print("Opção desconhecida");
+    }
+  } while (continuar);
+}
